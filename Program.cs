@@ -7,8 +7,10 @@ namespace BankAPI
     class Program
     {
         static List<Conta> listaContas = new List<Conta>();
+        
         static void Main(string[] args)
         {
+            Console.WriteLine("BankAPI a seu dispor!");
             string opcaoUsuario = ObterOpcaoUsuario();
             while (opcaoUsuario.ToUpper() != "X")
 			{
@@ -21,13 +23,13 @@ namespace BankAPI
 						InserirConta();
 						break;
 					case "3":
-						Transferir();
+						Transferencia();
 						break;
 					case "4":
-						Sacar();
+						Saque();
 						break;
 					case "5":
-						Depositar();
+						Deposito();
 						break;
                     case "C":
 						Console.Clear();
@@ -40,16 +42,18 @@ namespace BankAPI
 				opcaoUsuario = ObterOpcaoUsuario();
 			}
 			
-			Console.WriteLine("Obrigado por utilizar nossos serviços.");
+			Console.WriteLine("Obrigado por utilizar nossos serviços. Aperte qualquer botão para finalizar a sessão.");
 			Console.ReadLine();
+            Console.WriteLine("Sessão finalizada");
         }
         private static void ListarContas()
 		{
-			Console.WriteLine("Listar contas");
+			Console.WriteLine("Contas existentes:");
+            Console.WriteLine();
 
 			if (listaContas.Count == 0)
 			{
-				Console.WriteLine("Nenhuma conta cadastrada.");
+				Console.WriteLine("Nenhuma conta cadastrada!");
 				return;
 			}
 
@@ -61,7 +65,7 @@ namespace BankAPI
 			}
 		}
 
-        private static void Transferir()
+        private static void Transferencia()
 		{
 			Console.Write("Digite o número da conta de origem: ");
 			int indiceContaOrigem = int.Parse(Console.ReadLine());
@@ -74,7 +78,7 @@ namespace BankAPI
 
             listaContas[indiceContaOrigem].Transferir(valorTransferencia, listaContas[indiceContaDestino]);
 		}
-        private static void Sacar()
+        private static void Saque()
 		{
 			Console.Write("Digite o número da conta: ");
 			int indiceConta = int.Parse(Console.ReadLine());
@@ -84,7 +88,7 @@ namespace BankAPI
 
             listaContas[indiceConta].Sacar(valorSaque);
 		}
-        private static void Depositar()
+        private static void Deposito()
 		{
 			Console.Write("Digite o número da conta: ");
 			int indiceConta = int.Parse(Console.ReadLine());
@@ -99,16 +103,16 @@ namespace BankAPI
         {
             Console.WriteLine("Inserir nova conta");
 
-			Console.Write("Digite 1 para Conta Fisica ou 2 para Juridica: ");
+			Console.Write("Digite 1 para Conta Física ou 2 para Conta Jurídica: ");
 			int entradaTipoConta = int.Parse(Console.ReadLine());
 
-			Console.Write("Digite o Nome do Cliente: ");
+			Console.Write("Digite o nome do cliente: ");
 			string entradaNome = Console.ReadLine();
 
 			Console.Write("Digite o saldo inicial: ");
 			double entradaSaldo = double.Parse(Console.ReadLine());
 
-			Console.Write("Digite o crédito: ");
+			Console.Write("Digite o valor do crédito disponível do cliente: ");
 			double entradaCredito = double.Parse(Console.ReadLine());
 
 			Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
@@ -117,20 +121,21 @@ namespace BankAPI
 										name: entradaNome);
 
 			listaContas.Add(novaConta);
+            Console.WriteLine("Nova conta adicionada em nome de {0}!", entradaNome);
 		}
     
 
         private static string ObterOpcaoUsuario()
         {
+            
             Console.WriteLine();
-            Console.WriteLine("DIO Bank a seu dispor!!!");
             Console.WriteLine("Informe a opção desejada:");
-
+            Console.WriteLine();
             Console.WriteLine("1- Listar contas");
             Console.WriteLine("2- Inserir nova conta");
-            Console.WriteLine("3- Transferir");
-            Console.WriteLine("4- Sacar");
-            Console.WriteLine("5- Depositar");
+            Console.WriteLine("3- Transferência");
+            Console.WriteLine("4- Saque");
+            Console.WriteLine("5- Depósito");
             Console.WriteLine("C- Limpar Tela");
             Console.WriteLine("X- Sair");
             Console.WriteLine();

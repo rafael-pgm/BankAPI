@@ -19,7 +19,7 @@ namespace BankAPI
         }
         public bool Sacar (double valorSaque)
         {
-            //Validacção de saldo suficiente
+            //Validação de saldo suficiente
             if(this.Saldo - valorSaque <(this.Credito *-1))
             {
                 Console.WriteLine("Saldo insuficiente");
@@ -48,10 +48,10 @@ namespace BankAPI
         public override string ToString()
         {
             string retorno = "";
-            retorno += "TipoConta " + this.TipoConta + " | ";
-            retorno += "Nome " + this.Name + " | ";
-            retorno += "Saldo " + this.Saldo + " | ";
-            retorno += "Credito " + this.Credito + " | ";
+            retorno += "TipoConta: " + this.TipoConta + " | ";
+            retorno += "Nome: " + this.Name + " | ";
+            retorno += "Saldo: R$ " + this.Saldo + " | ";
+            retorno += "Credito: R$" + this.Credito + " | ";
             return retorno;
         }
 

@@ -3,8 +3,8 @@ namespace BankAPI
 
     public enum TipoConta
     {
-        PessoaFisica = 1,
+        PF = 1,
 
-        PessoaJuridica = 2
+        PJ = 2
     }
 }
