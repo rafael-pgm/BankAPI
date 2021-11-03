@@ -1,0 +1,16 @@
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\BankAPI.exe
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\BankAPI.deps.json
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\BankAPI.runtimeconfig.json
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\BankAPI.runtimeconfig.dev.json
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\BankAPI.dll
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\ref\BankAPI.dll
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\bin\Debug\net5.0\BankAPI.pdb
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.csproj.AssemblyReference.cache
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.AssemblyInfoInputs.cache
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.AssemblyInfo.cs
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.dll
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\ref\BankAPI.dll
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.pdb
+C:\Users\rafae\Desktop\DIO\Projetos de Estudos\BankAPI\obj\Debug\net5.0\BankAPI.genruntimeconfig.cache
