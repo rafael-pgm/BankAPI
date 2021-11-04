@@ -24,10 +24,24 @@ namespace BankAPI
             {
                 Console.WriteLine("Saldo insuficiente");
                 return false;                            
+            } else if (valorSaque > this.Saldo)
+            {
+                Console.WriteLine("Esta operação consumirá parcialemente o seu crédito, estando sujeita a cobrança de juros. Deseja continuar?");
+                Console.WriteLine("Digite 1 para Sim ou qualquer outra tecla para Não:");
+                int opcaoUsuario = int.Parse(Console.ReadLine());
+                if(opcaoUsuario != 1)
+                {
+                    Console.WriteLine("Você não confirmou a operação de saque.");
+                    return false;
+                }                                  
+                
             }
+            
             this.Saldo -= valorSaque;
-
-            Console.WriteLine("O saldo atual da conta de {0} é de {1}", this.Name, this.Saldo);
+            Console.WriteLine();
+            Console.WriteLine("Saque de {0} relizado com sucesso!", valorSaque);
+            Console.WriteLine();
+            Console.WriteLine("O saldo atual da conta de {0} é de R$ {1}.", this.Name, this.Saldo);
             return true;
         }
 
@@ -48,10 +62,10 @@ namespace BankAPI
         public override string ToString()
         {
             string retorno = "";
-            retorno += "TipoConta: " + this.TipoConta + " | ";
+            retorno += "Tipo de Conta: " + this.TipoConta + " | ";
             retorno += "Nome: " + this.Name + " | ";
             retorno += "Saldo: R$ " + this.Saldo + " | ";
-            retorno += "Credito: R$" + this.Credito + " | ";
+            retorno += "Crédito: R$ " + this.Credito + " | ";
             return retorno;
         }
 

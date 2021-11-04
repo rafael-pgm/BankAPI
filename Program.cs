@@ -6,8 +6,7 @@ namespace BankAPI
 {
     class Program
     {
-        static List<Conta> listaContas = new List<Conta>();
-        
+        static List<Conta> listaContas = new List<Conta>();        
         static void Main(string[] args)
         {
             Console.WriteLine("BankAPI a seu dispor!");
@@ -36,7 +35,10 @@ namespace BankAPI
 						break;
 
 					default:
-						throw new ArgumentOutOfRangeException();
+					//	Console.WriteLine("Opção inválida. Sessão encerrada.");
+                      //  Console.WriteLine();
+                      //  throw new ArgumentOutOfRangeException(opcaoUsuario + " não é uma opção válida.");
+						 throw new ArgumentOutOfRangeException();
 				}
 
 				opcaoUsuario = ObterOpcaoUsuario();
@@ -82,6 +84,14 @@ namespace BankAPI
 		{
 			Console.Write("Digite o número da conta: ");
 			int indiceConta = int.Parse(Console.ReadLine());
+			//se o número for negativo ou maior do que o número de contas abertas
+			while (0 > indiceConta || indiceConta +1 > listaContas.Count)
+			{
+				Console.WriteLine("Conta inexistente. Digite o número da conta: ");
+				indiceConta = int.Parse(Console.ReadLine());
+			}
+			
+
 
 			Console.Write("Digite o valor a ser sacado: ");
 			double valorSaque = double.Parse(Console.ReadLine());
@@ -105,6 +115,11 @@ namespace BankAPI
 
 			Console.Write("Digite 1 para Conta Física ou 2 para Conta Jurídica: ");
 			int entradaTipoConta = int.Parse(Console.ReadLine());
+           // while (entradaTipoConta != 1 || entradaTipoConta != 2)
+           // {
+             //   Console.WriteLine("Tipo de conta inexistente. Digite 1 para Conta Física ou 2 para Conta Jurídica: ");
+             //   Console.ReadLine();
+           // }
 
 			Console.Write("Digite o nome do cliente: ");
 			string entradaNome = Console.ReadLine();
