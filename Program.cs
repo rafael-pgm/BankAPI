@@ -35,10 +35,9 @@ namespace BankAPI
 						break;
 
 					default:
-					//	Console.WriteLine("Opção inválida. Sessão encerrada.");
-                      //  Console.WriteLine();
-                      //  throw new ArgumentOutOfRangeException(opcaoUsuario + " não é uma opção válida.");
-						 throw new ArgumentOutOfRangeException();
+						Console.WriteLine("Opção inválida. Pressione qualquer tecla para retornar ao menu inicial.");
+						Console.ReadLine();
+						break;                      
 				}
 
 				opcaoUsuario = ObterOpcaoUsuario();
@@ -71,9 +70,21 @@ namespace BankAPI
 		{
 			Console.Write("Digite o número da conta de origem: ");
 			int indiceContaOrigem = int.Parse(Console.ReadLine());
+			//Verifica a existência da conta indicada / Checks if the account exists.
+			while (0 > indiceContaOrigem || indiceContaOrigem +1 > listaContas.Count)
+			{
+				Console.WriteLine("Conta inexistente. Digite o número da conta: ");
+				indiceContaOrigem = int.Parse(Console.ReadLine());
+			}
 
             Console.Write("Digite o número da conta de destino: ");
 			int indiceContaDestino = int.Parse(Console.ReadLine());
+			//Verifica a existência da conta indicada / Checks if the account exists.
+			while (0 > indiceContaDestino || indiceContaDestino +1 > listaContas.Count)
+			{
+				Console.WriteLine("Conta inexistente. Digite o número da conta: ");
+				indiceContaDestino = int.Parse(Console.ReadLine());
+			}
 
 			Console.Write("Digite o valor a ser transferido: ");
 			double valorTransferencia = double.Parse(Console.ReadLine());
@@ -84,14 +95,12 @@ namespace BankAPI
 		{
 			Console.Write("Digite o número da conta: ");
 			int indiceConta = int.Parse(Console.ReadLine());
-			//se o número for negativo ou maior do que o número de contas abertas
+			//Verifica a existência da conta indicada / Checks if the account exists.
 			while (0 > indiceConta || indiceConta +1 > listaContas.Count)
 			{
 				Console.WriteLine("Conta inexistente. Digite o número da conta: ");
 				indiceConta = int.Parse(Console.ReadLine());
-			}
-			
-
+			}		
 
 			Console.Write("Digite o valor a ser sacado: ");
 			double valorSaque = double.Parse(Console.ReadLine());
@@ -102,6 +111,12 @@ namespace BankAPI
 		{
 			Console.Write("Digite o número da conta: ");
 			int indiceConta = int.Parse(Console.ReadLine());
+			//Verifica a existência da conta indicada / Checks if the account exists.
+			while (0 > indiceConta || indiceConta +1 > listaContas.Count)
+			{
+				Console.WriteLine("Conta inexistente. Digite o número da conta: ");
+				indiceConta = int.Parse(Console.ReadLine());
+			}	
  
 			Console.Write("Digite o valor a ser depositado: ");
 			double valorDeposito = double.Parse(Console.ReadLine());
@@ -115,11 +130,11 @@ namespace BankAPI
 
 			Console.Write("Digite 1 para Conta Física ou 2 para Conta Jurídica: ");
 			int entradaTipoConta = int.Parse(Console.ReadLine());
-           // while (entradaTipoConta != 1 || entradaTipoConta != 2)
-           // {
-             //   Console.WriteLine("Tipo de conta inexistente. Digite 1 para Conta Física ou 2 para Conta Jurídica: ");
-             //   Console.ReadLine();
-           // }
+            while (entradaTipoConta < 1 || entradaTipoConta > 2)
+            {				
+                Console.WriteLine("Tipo de conta inexistente. Digite 1 para Conta Física ou 2 para Conta Jurídica: ");
+                entradaTipoConta = int.Parse(Console.ReadLine());
+            }
 
 			Console.Write("Digite o nome do cliente: ");
 			string entradaNome = Console.ReadLine();
@@ -139,10 +154,11 @@ namespace BankAPI
             Console.WriteLine("Nova conta adicionada em nome de {0}!", entradaNome);
 		}
     
-
+		//Menu Inicial / Start Menu
         private static string ObterOpcaoUsuario()
         {
-            
+			Console.WriteLine();
+            Console.WriteLine("### Menu Inicial ###");
             Console.WriteLine();
             Console.WriteLine("Informe a opção desejada:");
             Console.WriteLine();

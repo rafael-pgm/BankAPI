@@ -17,6 +17,7 @@ namespace BankAPI
             this.Credito = credito;
 
         }
+        //Métodos relativos às ações da conta // Methods related to the account actions.
         public bool Sacar (double valorSaque)
         {
             //Validação de saldo suficiente
@@ -26,6 +27,7 @@ namespace BankAPI
                 return false;                            
             } else if (valorSaque > this.Saldo)
             {
+                // Informa que a conta consumirá crédito e verifica se o cliente deseja continuar / Advertises that the action will consume credit and checks if the client wants to continue the operation.  
                 Console.WriteLine("Esta operação consumirá parcialemente o seu crédito, estando sujeita a cobrança de juros. Deseja continuar?");
                 Console.WriteLine("Digite 1 para Sim ou qualquer outra tecla para Não:");
                 int opcaoUsuario = int.Parse(Console.ReadLine());
@@ -33,8 +35,7 @@ namespace BankAPI
                 {
                     Console.WriteLine("Você não confirmou a operação de saque.");
                     return false;
-                }                                  
-                
+                }                 
             }
             
             this.Saldo -= valorSaque;
@@ -48,7 +49,7 @@ namespace BankAPI
         public void Depositar (double valorDeposito)
         {
             this.Saldo += valorDeposito;
-            Console.WriteLine("O saldo atual da conta de {0} é de {1}", this.Name, this.Saldo);
+            Console.WriteLine("O saldo atual da conta de {0} é de R$ {1}.", this.Name, this.Saldo);
         }
 
         public void Transferir(double valorTransferencia, Conta contaDestino)
